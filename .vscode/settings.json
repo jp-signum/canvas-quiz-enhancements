@@ -1,0 +1,8 @@
+{
+    "files.watcherExclude": {
+        "**/dist_electron/**": true,
+        "**/dist/*/**": true,
+        "**/package-lock.json": true,
+        "**/yarn.lock": true
+    }
+}
