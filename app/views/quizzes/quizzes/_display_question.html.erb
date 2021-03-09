@@ -123,6 +123,8 @@
     </div>
     <% unless content_is_locked  %>
       <div class="links" style="<%= hidden if user_answer || assessing %>">
+        <% copy_question_title = t('links.copy_question', 'Copy this Question') %>
+        <a href="#" class="copy_question_link no-hover" title="<%= copy_question_title %>"><i class="icon-copy standalone-icon"><span class="screenreader-only"><%= copy_question_title %></span></i></a>
         <% edit_question_title = t('links.edit_question', 'Edit this Question') %>
         <a href="#" class="edit_question_link no-hover" title="<%= edit_question_title %>"><i class="icon-edit standalone-icon"><span class="screenreader-only"><%= edit_question_title %></span></i></a>
         <% unless points_are_locked %>

@@ -5467,6 +5467,7 @@ en:
         regraded_score: 'Regraded Score:'
         links:
           edit_question: Edit this Question
+          copy_question: Copy this Question
           delete_question: Delete this Question
           move_copy_question: move/copy question to another bank
         labels:

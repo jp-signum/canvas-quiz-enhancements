@@ -2634,6 +2634,62 @@ $(document).ready(function() {
       })
   })
 
+  $(document).delegate('.copy_question_link', 'click', function(event) {
+    event.preventDefault()
+    var $question = $(this).parents('.question')
+    setQuestionID($question)
+    // need to write fx, setCopyQuestionID, that makes new ID for copy then assign that below instead of old ID -or- do that before POST
+    var originalQuestionID = $question.data('questionID')
+    console.log({$question})
+    console.log({originalQuestionID})
+    // console.log('hot reload test');
+    var question = $question.getTemplateData({
+      textValues: [
+        'question_type',
+        'correct_comments',
+        'incorrect_comments',
+        'neutral_comments',
+        'question_name',
+        'question_points',
+        'answer_selection_type',
+        'blank_id',
+        'matching_answer_incorrect_matches',
+        'regrade_option',
+        'regrade_disabled'
+      ],
+      htmlValues: [
+        'question_text',
+        'correct_comments_html',
+        'incorrect_comments_html',
+        'neutral_comments_html'
+      ]
+    })
+    question.question_text = $question.find("textarea[name='question_text']").val()
+    const matches = []
+    $question.find('.matching_answer_incorrect_matches_list li').each(function() {
+      matches.push($(this).text())
+    })
+    question.matching_answer_incorrect_matches = matches.join('\n')
+    console.log({question})
+
+    // create form data
+
+    // make POST 
+
+    // display new Q and reset view
+  })
+
+  function setCopyQuestionID(question) {
+    // const questionID = $(question)
+    //   .closest('.question_holder')
+    //   .find('.display_question')
+    //   .attr('id')
+    //   .replace('question_', '')
+    // question.data({questionID})
+
+
+  }
+
   $(document).delegate('.edit_question_link', 'click', function(event) {
     event.preventDefault()
     var $question = $(this).parents('.question')
